@@ -1,3 +1,4 @@
+|A-lambda I|=0
 import numpy as np
 
 # Define the 2x2 matrix
