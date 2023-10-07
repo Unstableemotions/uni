@@ -1,30 +1,21 @@
-import numpy as np
-def matrix_rank(matrix):
-    # Use numpy's linear algebra function to calculate the rank
-    return np.linalg.matrix_rank(matrix)
-def row_echelon_form(matrix):
-    # Ensure the matrix has 2 rows and 2 columns
-    if matrix.shape != (2, 2):
-        raise ValueError("Matrix must be of order 2x2")
+import sympy as sp
 
-    # Convert the matrix to float64 data type
-    matrix = matrix.astype('float64')
+# Define the 2x2 matrix as a list of lists
+matrix = [
+    [1, 2],
+    [3, 4]
+]
 
-    # Perform row operations to convert to row echelon form
-    if matrix[0, 0] == 0:
-        matrix[[0, 1]] = matrix[[1, 0]]  # Swap rows if the first element is zero
+# Create a SymPy Matrix object from the list
+mat = sp.Matrix(matrix)
 
-    factor = matrix[1, 0] / matrix[0, 0]
-    matrix[1] -= factor * matrix[0]
+# Find the row echelon form of the matrix
+rref_mat, pivot_columns = mat.rref()
 
-    return matrix
+# Find the rank of the matrix
+rank = rref_mat.rank()
 
-# Example matrix (replace with your own)
-matrix = np.array([[2, 4], [1, 3]])
-
-# Convert to row echelon form
-result_matrix = row_echelon_form(matrix)
+# Print the row echelon form and rank
 print("Row Echelon Form:")
-print(result_matrix)
-rank = matrix_rank(matrix)
+print(rref_mat)
 print("Rank of the Matrix:", rank)
