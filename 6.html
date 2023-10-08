@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factorial Calculator</title>
+</head>
+<body>
+  <h1>Factorial Calculator</h1>
+  <script>
+    // Prompt the user for the number whose factorial is to be calculated
+    var numInput = prompt("Enter a number to calculate its factorial:");
+
+    // Convert the user input to an integer
+    var num = parseInt(numInput);
+
+    // Initialize a variable to store the factorial
+    var factorial = 1;
+
+    // Check if the input is valid and not NaN
+    if (!isNaN(num)) {
+      // Calculate the factorial of the number
+      for (var i = 1; i <= num; i++) {
+        factorial *= i;
+      }
+
+      alert("The factorial of " + num + " is: " + factorial);
+    } else {
+      alert("Invalid input. Please enter a valid number.");
+    }
+  </script>
+</body>
+</html>

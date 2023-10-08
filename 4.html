@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Even or Odd Checker</title>
+</head>
+<body>
+  <h1>Even or Odd Checker</h1>
+  <script>
+    // Prompt the user for a number
+    var input = prompt("Enter a number:");
+
+    // Convert the user input to an integer
+    var number = parseInt(input);
+
+    // Check if the number is valid and not NaN
+    if (!isNaN(number)) {
+      // Check if the number is even or odd
+      if (number % 2 === 0) {
+        alert(number + " is even.");
+      } else {
+        alert(number + " is odd.");
+      }
+    } else {
+      alert("Invalid input. Please enter a valid number.");
+    }
+  </script>
+</body>
+</html>

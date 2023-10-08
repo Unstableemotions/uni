@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+</head>
+<body>
+  <h1>Login Form</h1>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required><br>
+
+    <label for="password">Password (max 8 characters):</label>
+    <input type="password" id="password" maxlength="8" required><br>
+
+    <input type="submit" value="Login">
+  </form>
+
+  <div id="message" style="display: none;"></div>
+
+  <script>
+    var maxAttempts = 3;
+    var attempts = 0;
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var usernameInput = document.getElementById("username").value;
+      var passwordInput = document.getElementById("password").value;
+
+      if (validateLogin(usernameInput, passwordInput)) {
+        displayMessage("Welcome!");
+      } else {
+        attempts++;
+        if (attempts < maxAttempts) {
+          displayMessage("Invalid username or password. You have " + (maxAttempts - attempts) + " attempts left.", "error");
+        } else {
+          displayMessage("Maximum login attempts reached. The application will now end.", "error");
+          document.getElementById("username").disabled = true;
+          document.getElementById("password").disabled = true;
+          document.getElementById("submit").disabled = true;
+        }
+      }
+    });
+
+    function validateLogin(username, password) {
+      // Replace these with your predefined username and password values
+      var validUsername = "admin";
+      var validPassword = "12345678";
+
+      return username === validUsername && password === validPassword;
+    }
+
+    function displayMessage(message, type = "success") {
+      var messageElement = document.getElementById("message");
+      messageElement.textContent = message;
+      messageElement.style.color = type === "success" ? "green" : "red";
+      messageElement.style.display = "block";
+    }
+  </script>
+</body>
+</html>

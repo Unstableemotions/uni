@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of First n Numbers</title>
+</head>
+<body>
+  <h1>Sum of First n Numbers</h1>
+  <script>
+    // Prompt the user for the value of n
+    var nInput = prompt("Enter a value for n:");
+
+    // Convert the user input to an integer
+    var n = parseInt(nInput);
+
+    // Initialize a variable to store the sum
+    var sum = 0;
+
+    // Check if the input is valid and not NaN
+    if (!isNaN(n)) {
+      // Calculate the sum of the first n numbers
+      for (var i = 1; i <= n; i++) {
+        sum += i;
+      }
+
+      alert("The sum of the first " + n + " numbers is: " + sum);
+    } else {
+      alert("Invalid input. Please enter a valid number.");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Input Validation</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Text Input Validation</h1>
+  <form id="validationForm" onsubmit="return validateForm()">
+    <label for="text">Enter Text:</label>
+    <input type="text" id="text" required>
+    <span class="error" id="textError"></span><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      // Get the input value
+      var textInput = document.getElementById("text");
+      var textError = document.getElementById("textError");
+
+      // Check if the input value is empty
+      if (textInput.value.trim() === "") {
+        textError.textContent = "Text field cannot be empty.";
+        textError.style.display = "block";
+        return false; // Prevent form submission
+      } else {
+        textError.style.display = "none"; // Hide the error message
+        return true; // Allow form submission
+      }
+    }
+  </script>
+</body>
+</html>
